@@ -1,16 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --navy: #1e3a5f;
-  --navy-deep: #152a45;
-  --navy-soft: #2a4a73;
-  --slate: #5b6b7c;
-  --mist: #eef2f6;
-  --cloud: #f7f9fb;
-  --line: #d8e0e8;
-  --white: #ffffff;
-  --ink: #1a2332;
-  --background: var(--cloud);
+  --navy: #0f3d2e;
+  --navy-deep: #0b1f16;
+  --navy-soft: #c9a84c;
+  --slate: #4a5c52;
+  --mist: #f3f0e6;
+  --cloud: #ebe7db;
+  --line: #c9a84c;
+  --white: #f3f0e6;
+  --ink: #0b1f16;
+  --gold: #c9a84c;
+  --gold-hover: #e0be6c;
+  --background: var(--mist);
   --foreground: var(--ink);
 }
 
@@ -25,6 +27,9 @@
   --color-cloud: var(--cloud);
   --color-line: var(--line);
   --color-ink: var(--ink);
+  --color-gold: var(--gold);
+  --color-gold-hover: var(--gold-hover);
+  --color-white: var(--white);
   --font-sans: var(--font-vazirmatn);
 }
 
@@ -67,7 +72,28 @@ body {
 
 .hero-grid {
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+    linear-gradient(rgba(201, 168, 76, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 168, 76, 0.06) 1px, transparent 1px);
   background-size: 44px 44px;
+}
+
+.hero-seal-gradient {
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 20%, rgba(201, 168, 76, 0.18), transparent 55%),
+    linear-gradient(145deg, #0b1f16 0%, #0f3d2e 55%, #0b1f16 100%);
+}
+
+.card-gold-glow {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  transition:
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.card-gold-glow:hover {
+  border-color: #e0be6c;
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, 0.4),
+    0 0 22px rgba(201, 168, 76, 0.35);
 }

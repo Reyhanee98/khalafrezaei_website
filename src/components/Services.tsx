@@ -32,14 +32,18 @@ const services: { title: string; icon: LucideIcon }[] = [
 
 export default function Services() {
   return (
-    <section id="services" className="bg-cloud py-20 sm:py-28">
+    <section
+      id="services"
+      className="border-b-2 border-gold bg-navy-deep py-20 sm:py-28"
+    >
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <div className="max-w-2xl">
-          <p className="text-sm font-semibold text-navy-soft">خدمات</p>
-          <h2 className="mt-3 text-3xl font-bold text-navy sm:text-4xl">
+          <p className="text-sm font-semibold text-gold">خدمات</p>
+          <h2 className="mt-3 text-3xl font-bold text-mist sm:text-4xl">
             خدمات کارشناسی رسمی
           </h2>
-          <p className="mt-4 text-base leading-8 text-slate sm:text-lg">
+          <div className="mt-5 h-0.5 w-16 bg-gold" />
+          <p className="mt-4 text-base leading-8 text-mist/75 sm:text-lg">
             ارائه خدمات تخصصی کارشناسی در امور ملکی، ساختمانی و فنی مطابق با
             ضوابط قانونی و استانداردهای مهندسی.
           </p>
@@ -51,12 +55,12 @@ export default function Services() {
             return (
               <article
                 key={service.title}
-                className="border border-line bg-white p-6 transition-colors hover:border-navy/30 hover:bg-mist/60"
+                className="card-gold-glow border border-gold bg-navy p-6"
               >
-                <div className="flex h-11 w-11 items-center justify-center rounded bg-navy text-white">
+                <div className="flex h-11 w-11 items-center justify-center rounded border border-gold/50 bg-navy-deep text-gold">
                   <Icon className="h-5 w-5" strokeWidth={1.75} />
                 </div>
-                <h3 className="mt-5 text-lg font-bold leading-8 text-navy">
+                <h3 className="mt-5 text-lg font-bold leading-8 text-mist">
                   {service.title}
                 </h3>
               </article>

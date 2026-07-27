@@ -32,7 +32,7 @@ export default function Header() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled || open
-          ? "border-b border-line bg-white/95 shadow-sm backdrop-blur-md"
+          ? "border-b-2 border-gold bg-mist/95 shadow-sm backdrop-blur-md"
           : "bg-transparent"
       }`}
     >
@@ -41,10 +41,10 @@ export default function Header() {
           href="#home"
           onClick={() => setOpen(false)}
           className={`flex items-center gap-2 text-base font-bold tracking-tight transition-colors sm:text-lg ${
-            scrolled || open ? "text-navy" : "text-white"
+            scrolled || open ? "text-navy" : "text-mist"
           }`}
         >
-          <Scale className="h-5 w-5 shrink-0" strokeWidth={1.75} />
+          <Scale className="h-5 w-5 shrink-0 text-gold" strokeWidth={1.75} />
           محمد خلف رضائی زارع
         </a>
 
@@ -56,7 +56,7 @@ export default function Header() {
               className={`text-sm font-medium transition-colors ${
                 scrolled
                   ? "text-slate hover:text-navy"
-                  : "text-white/85 hover:text-white"
+                  : "text-mist/85 hover:text-gold"
               }`}
             >
               {link.label}
@@ -64,11 +64,7 @@ export default function Header() {
           ))}
           <a
             href="#contact"
-            className={`rounded px-4 py-2 text-sm font-semibold transition-colors ${
-              scrolled
-                ? "bg-navy text-white hover:bg-navy-soft"
-                : "bg-white text-navy hover:bg-mist"
-            }`}
+            className="rounded border border-gold bg-gold px-4 py-2 text-sm font-semibold text-navy transition-colors hover:bg-navy-deep hover:text-gold"
           >
             درخواست مشاوره
           </a>
@@ -79,7 +75,7 @@ export default function Header() {
           aria-label={open ? "بستن منو" : "باز کردن منو"}
           aria-expanded={open}
           className={`rounded p-2 md:hidden ${
-            scrolled || open ? "text-navy" : "text-white"
+            scrolled || open ? "text-navy" : "text-mist"
           }`}
           onClick={() => setOpen((value) => !value)}
         >
@@ -88,7 +84,7 @@ export default function Header() {
       </div>
 
       {open && (
-        <div className="border-t border-line bg-white px-5 py-6 md:hidden">
+        <div className="border-t-2 border-gold bg-mist px-5 py-6 md:hidden">
           <nav className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <a
@@ -102,7 +98,7 @@ export default function Header() {
             ))}
             <a
               href="#contact"
-              className="mt-2 inline-flex items-center justify-center rounded bg-navy px-4 py-3 text-sm font-semibold text-white"
+              className="mt-2 inline-flex items-center justify-center rounded border border-gold bg-gold px-4 py-3 text-sm font-semibold text-navy transition-colors hover:bg-navy-deep hover:text-gold"
               onClick={() => setOpen(false)}
             >
               درخواست مشاوره
