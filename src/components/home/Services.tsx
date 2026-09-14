@@ -6,63 +6,109 @@ import {
   Home,
   type LucideIcon,
 } from "lucide-react";
+import Image from "next/image";
 
-const services: { title: string; icon: LucideIcon }[] = [
+const services: {
+  title: string;
+  description: string;
+  icon: LucideIcon;
+  image: string;
+  imageAlt: string;
+}[] = [
   {
     title: "ارزیابی و تعیین قیمت اراضی و ابنیه",
+    description: "ارزیابی رسمی زمین و ساختمان با گزارش مستند.",
     icon: Home,
+    image: "/images/services/official-property-valuation.jpg",
+    imageAlt: "ارزیابی اراضی و ابنیه",
   },
   {
     title: "برآورد خسارات ساختمانی",
+    description: "تعیین علت و میزان خسارت بر پایه بازدید فنی.",
     icon: FileSearch,
+    image: "/images/services/construction-plans.jpg",
+    imageAlt: "برآورد خسارات ساختمانی",
   },
   {
     title: "تعیین اجاره‌بهای عادله",
+    description: "کارشناسی اجاره‌بها مطابق ضوابط قانونی.",
     icon: Building2,
+    image: "/images/services/luxury-apartment.jpg",
+    imageAlt: "تعیین اجاره‌بهای عادله",
   },
   {
     title: "برآورد هزینه ساخت و ساز",
+    description: "متره و برآورد پروژه‌های ساختمانی.",
     icon: ClipboardList,
+    image: "/images/services/land-measurement.jpg",
+    imageAlt: "برآورد هزینه ساخت و ساز",
   },
   {
     title: "محاسبات فنی و مهندسی",
+    description: "محاسبات تخصصی پشتیبان گزارش کارشناسی.",
     icon: Calculator,
+    image: "/images/services/legal-property-documents.jpg",
+    imageAlt: "محاسبات فنی و مهندسی",
   },
 ];
 
-export default function Services() {
+type ServicesProps = {
+  asPage?: boolean;
+};
+
+export default function Services({ asPage = false }: ServicesProps) {
   return (
     <section
-      id="services"
-      className="border-b-2 border-gold bg-navy-deep py-20 sm:py-28"
+      id="core-services"
+      aria-labelledby="core-services-heading"
+      className="section section-dark section-accent-line"
     >
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <div className="max-w-2xl">
-          <p className="text-sm font-semibold text-gold">خدمات</p>
-          <h2 className="mt-3 text-3xl font-bold text-mist sm:text-4xl">
-            خدمات کارشناسی رسمی
-          </h2>
-          <div className="mt-5 h-0.5 w-16 bg-gold" />
-          <p className="mt-4 text-base leading-8 text-mist/75 sm:text-lg">
-            ارائه خدمات تخصصی کارشناسی در امور ملکی، ساختمانی و فنی مطابق با
-            ضوابط قانونی و استانداردهای مهندسی.
+      <div className="section-inner">
+        <header className="section-header">
+          <p className="section-label">صلاحیت‌های پروانه</p>
+          {asPage ? (
+            <h1 id="core-services-heading" className="section-title">
+              محورهای اصلی صلاحیت کارشناسی
+            </h1>
+          ) : (
+            <h2 id="core-services-heading" className="section-title">
+              محورهای اصلی صلاحیت کارشناسی
+            </h2>
+          )}
+          <div className="section-rule" />
+          <p className="section-lead">
+            این بخش، صلاحیت‌های فنی مندرج در پروانه کارشناسی را نشان می‌دهد؛
+            مواردی مانند تعیین خسارت، اجاره‌بهای عادله و محاسبات مهندسی که مبنای
+            گزارش‌های رسمی قرار می‌گیرند.
           </p>
-        </div>
+        </header>
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="section-grid grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => {
             const Icon = service.icon;
             return (
               <article
                 key={service.title}
-                className="card-gold-glow border border-gold bg-navy p-6"
+                className="ui-card ui-card-dark group overflow-hidden"
               >
-                <div className="flex h-11 w-11 items-center justify-center rounded border border-gold/50 bg-navy-deep text-gold">
-                  <Icon className="h-5 w-5" strokeWidth={1.75} />
+                <div className="media-frame media-ratio !rounded-none !rounded-t-[var(--radius-lg)]">
+                  <Image
+                    src={service.image}
+                    alt={service.imageAlt}
+                    fill
+                    loading="lazy"
+                    className="img-zoom object-cover"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                  <div className="media-overlay" />
                 </div>
-                <h3 className="mt-5 text-lg font-bold leading-8 text-mist">
-                  {service.title}
-                </h3>
+                <div className="ui-card-pad">
+                  <div className="icon-box">
+                    <Icon strokeWidth={1.75} />
+                  </div>
+                  <h3 className="card-title mt-5 text-mist">{service.title}</h3>
+                  <p className="card-text text-mist/70">{service.description}</p>
+                </div>
               </article>
             );
           })}
